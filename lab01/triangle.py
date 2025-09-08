@@ -3,5 +3,5 @@ def print_triangle(charecter, lines):
         print(charecter * count)
 
 print_triangle(charecter="@", lines=8)
-print_triangle(charecter="&", lines=13)
+print_triangle(charecter="&", lines=21)
 print_triangle(charecter="o", lines=5)
