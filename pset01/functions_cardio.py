@@ -49,8 +49,7 @@ def median_of_three(a, b, c):
     Return the median of three numbers a, b, and c.
     """
     # replace the pass statement with your code
-    return (a + b + c) / 2
-    
+    return sorted([a, b, c])[1]
 
 def is_palindrome(s):
     """
@@ -60,8 +59,7 @@ def is_palindrome(s):
     implement it as a simple check to see if s is equal to its
     reversal.
     """
-    # replace the pass statement with your code
-    pass
+    return s == s[::-1]
 
 
 def factorial(n):
@@ -72,8 +70,12 @@ def factorial(n):
     positive integers less than or equal to n. Please implement this
     function with a for loop.
     """
-    # replace the pass statement with your code
-    pass
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+    
 
 
 def count_of_latin_vowels(s):
@@ -83,16 +85,18 @@ def count_of_latin_vowels(s):
     The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
     function using a for loop to iterate through the string.
     """
-    # replace the pass statement with your code
-    pass
+    count = 0
+    for char in s:
+        if char.lower() in "aeiou":
+            count += 1
 
+    return(count)
 
 def at_beginning_or_end(part, whole):
     """
     Return True if the part is a prefix or a suffix of whole.
     """
-    # replace the pass statement with your code
-    pass
+    return whole.startswith(part) or whole.endswith(part)
 
 
 def longest_string(strings):
@@ -102,9 +106,11 @@ def longest_string(strings):
     If there are multiple strings with the same maximum length, return
     the first one encountered.
     """
-    # replace the pass statement with your code
-    pass
-
+    longest = "" 
+    for s in strings:
+        if len(s) > len(longest):
+            longest = s  
+    return longest
 
 def collatz(n):
     """
@@ -115,8 +121,16 @@ def collatz(n):
     - If n is odd, the next term is 3n + 1.
     - The sequence ends when it reaches 1.
     """
-    # replace the pass statement with your code
-    pass
+    sequence = [n] 
+    
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2  
+        else:
+            n = 3 * n + 1  
+        sequence.append(n)  
+    
+    return sequence
 
 
 def test_print_square():
