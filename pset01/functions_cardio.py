@@ -28,16 +28,20 @@ def print_square(n):
     ***
     ***
     """
-    # replace the pass statement with your code
-    pass
+    char = "*"
 
+    for _ in range(n):
+        print (n * char)
 
 def is_odd(n):
     """
     Return True if n is odd, False otherwise.
     """
-    # replace the pass statement with your code
-    pass
+    if n % 2 != 0:
+        return(True)
+
+    else:
+        return(False)
 
 
 def median_of_three(a, b, c):
@@ -45,8 +49,8 @@ def median_of_three(a, b, c):
     Return the median of three numbers a, b, and c.
     """
     # replace the pass statement with your code
-    pass
-
+    return (a + b + c) / 2
+    
 
 def is_palindrome(s):
     """
