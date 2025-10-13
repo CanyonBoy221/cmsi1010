@@ -58,8 +58,16 @@ def middle_element_of_list(a):
     elements, raise an IndexError. If a is not a list, raise a
     TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    def is_odd_length(a):
+        return len(a) % 2 == 1
+    def is_even_length(a):
+        return len(a) % 2 == 0
+    if not isinstance(a, list):
+        raise TypeError("Input is not a tuple")
+    if len(a) == 0:
+        raise IndexError("There are no elements in this tuple")
+    if len(a):
+        return ()
 
 
 def unique_elements(a):

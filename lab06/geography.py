@@ -45,7 +45,7 @@ countries = {
         "capital": "Tokyo",
         "coordinates": (35.6895, 139.6917),
         "region": "East Asia",
-        "landmarks": ["Mount Fuji", "Fushimi Inari Shrine", "Senso-ji Temple"]
+        "landmarks": ["Mount Fuji",     "Fushimi Inari Shrine", "Senso-ji Temple"]
     },
     "greece": {
         "capital": "Athens",
