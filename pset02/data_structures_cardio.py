@@ -49,7 +49,6 @@ def reverse_pair(t):
     return (t[1], t[0])
 
 
-
 def middle_element_of_list(a):
     """
     If a is a list with an odd number of elements, return the
@@ -58,16 +57,13 @@ def middle_element_of_list(a):
     elements, raise an IndexError. If a is not a list, raise a
     TypeError.
     """
-    def is_odd_length(a):
-        return len(a) % 2 == 1
-    def is_even_length(a):
-        return len(a) % 2 == 0
+    # replace the pass statement with your code
     if not isinstance(a, list):
-        raise TypeError("Input is not a tuple")
+        raise TypeError("Input is not a list")
     if len(a) == 0:
-        raise IndexError("There are no elements in this tuple")
-    if len(a):
-        return ()
+        raise IndexError("List has no elements")
+    mid_index = (len(a) - 1) // 2
+    return a[mid_index]
 
 
 def unique_elements(a):
@@ -76,7 +72,9 @@ def unique_elements(a):
     If a is not a list, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(a, list):
+        raise TypeError("Input is not a list")
+    return set(a)
 
 
 def contains_duplicates(a):
@@ -85,7 +83,9 @@ def contains_duplicates(a):
     and False otherwise. If a is not a list, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(a, list):
+        raise TypeError("Input is not a list")
+    return len(a) != len(set(a))
 
 
 def is_superset(a, b):
@@ -94,7 +94,9 @@ def is_superset(a, b):
     If either a or b is not a set, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(a, set) or not isinstance(b, set):
+        raise TypeError("Both inputs must be sets")
+    return a.issuperset(b)
 
 
 def is_subset(a, b):
@@ -103,7 +105,9 @@ def is_subset(a, b):
     If either a or b is not a set, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(a, set) or not isinstance(b, set):
+        raise TypeError("Both inputs must be sets")
+    return a.issubset(b)
 
 
 def is_disjoint(a, b):
