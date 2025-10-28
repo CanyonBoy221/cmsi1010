@@ -116,7 +116,9 @@ def is_disjoint(a, b):
     and False otherwise. If either a or b is not a set, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(a, set) or not isinstance(b, set):
+        raise TypeError("Both inputs must be sets")
+    return a.isdisjoint(b)
 
 
 def most_frequent_value_or_values(d):
@@ -127,8 +129,24 @@ def most_frequent_value_or_values(d):
     set (because there are no elements to count). If d is not a
     dictionary, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(d, dict):
+        raise TypeError("Input must be a dictionary")
+
+    if len(d) == 0:
+        return set()
+
+    value_counts = {}
+    for value in d.values():
+        value_counts[value] = value_counts.get(value, 0) + 1
+
+    max_frequency = max(value_counts.values())
+
+    most_frequent = set()
+    for value, count in value_counts.items():
+        if count == max_frequency:
+            most_frequent.add(value)
+
+    return most_frequent
 
 
 def key_is_in_both_dictionaries(d1, d2, key):
@@ -137,8 +155,12 @@ def key_is_in_both_dictionaries(d1, d2, key):
     and False otherwise. If either d1 or d2 is not a dictionary,
     raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(d1, dict):
+        raise TypeError("d1 must be a dictionary")
+    if not isinstance(d2, dict):
+        raise TypeError("d2 must be a dictionary")
+
+    return key in d1 and key in d2
 
 
 def word_frequencies(s):
@@ -153,7 +175,15 @@ def word_frequencies(s):
     If s is not a string, raise a TypeError.
     """
     # replace the pass statement with your code
-    pass
+    if not isinstance(s, str):
+        raise TypeError("Input must be a string")
+
+    words = s.split()
+    frequencies = {}
+    for word in words:
+        frequencies[word] = frequencies.get(word, 0) + 1
+
+    return frequencies
 
 
 def _assert_raises(exception_type, func, *args):
