@@ -12,7 +12,7 @@ The `carmen.py` program is a geography guessing game where players try to find C
   - The country's capital city
   - Geographic region
   - Famous landmarks
-  - Distance from Los Angeles (calculated using the haversine formula)
+  - Distance from Los Angeles (calculated using the haversine library)
 - Input validation to ensure guesses are valid countries
 - Continuous gameplay until the player chooses to exit
 

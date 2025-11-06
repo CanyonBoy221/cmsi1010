@@ -9,8 +9,10 @@ The `im_so_sorry.py` program demonstrates both recursive and iterative approache
 2. `factorial(n)` - An iterative function that calculates the factorial of n
 3. `print_count_down(n)` - A recursive function that prints a countdown from n to 1, then prints "BOOM"
 
-The program calculates the factorial of 6 (720) and then counts down from that number, demonstrating:
+The program demonstrates:
 - Base cases and recursive cases in functions
 - The difference between recursive and iterative implementations
 - How recursion builds up a call stack
 - Practical applications of recursion for counting and mathematical operations
+
+The specific execution calculates the factorial of 6, stores the result (720) in a variable, and then counts down from that value.
