@@ -1,5 +1,5 @@
-# Lab06
+# Lab 06: Carmen Sandiego
 
-A carmen sandiego game!
+A Carmen Sandiego game!
 
-This program introduced new data structures, multi-file programs, and virtual enviroments.
+This program introduced new data structures, multi-file programs, and virtual environments.

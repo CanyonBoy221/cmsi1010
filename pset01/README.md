@@ -1,7 +1,6 @@
-Assignment #01
+# Problem Set 01
 
-Made a game where a random number was generated and then you had to guess it
-
-Also had to make functions that did specific things based on what n was.
-
-I also did the functions cardio. Practicing functions basically
+This assignment includes:
+- A number guessing game where a random number is generated and the user must guess it
+- Functions that perform specific operations based on input parameters
+- Functions cardio exercises to practice writing and using functions

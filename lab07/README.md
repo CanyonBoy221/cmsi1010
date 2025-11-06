@@ -1,1 +1,3 @@
-# This lab will be writing  program to track and have interest on money with python
+# Lab 07: Interest Calculator
+
+This lab involves writing a program to track and calculate interest on money using Python.
