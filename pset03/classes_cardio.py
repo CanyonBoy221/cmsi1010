@@ -1,27 +1,5 @@
-# ----------------------------------------------------------------------
-# This is the file classes_cardio.py
-#
-# The intent is to give you practice with classes.
-#
-# Follow the instructions below, adding code where directed.
-#
-# There are no stubs in this file, so you will need to infer exactly
-# how to write each class from the descriptions and the unit tests at
-# the bottom of the file. To run the tests, you can use the command
-#
-#     pytest classes_cardio.py
-#
-# Remove this comment, and other comments serving as instructions,
-# prior to submission. You can, and should, add your own comments,
-# but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
-
 import math
-
-# Write a class called Rectangle, with attributes with and height,
-# and methods to calculate the area and perimeter. The class should
-# also have a __str__ method that returns a string representation
-# in a form you can infer from the unit tests below.
+import pytest
 
 
 class Rectangle:
@@ -38,35 +16,54 @@ class Rectangle:
     def __str__(self):
         return f"Rectangle({self.width} x {self.height})"
 
-# Write a class called Circle, with an attribute radius,
-# and methods to calculate the area and circumference.
-# Implement the __str__ method according to the unit tests
-# below.
 
-# ...
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
 
+    def area(self):
+        return self.radius * self.radius * math.pi
 
-# Write a class called Song, with attributes title, artist, and
-# duration. The duration should be in seconds. The class should
-# have a __str__ method that returns a string representation
-# according the unit tests below, and a method called play that
-# prints a message inferrable from the unit tests below.
+    def circumference(self):
+        return 2 * math.pi * self.radius
 
-# ...
+    def __str__(self):
+        return f"Circle(radius={self.radius})"
 
 
-# Write a class called Playlist, which contains a list of Song
-# objects. The class should have methods to add a song, play all
-# songs, and a __str__ method that returns a string representation
-# of the playlist, with each song represented as "title by artist
-# (duration)s" and separated by a pipe character (|). If the playlist
-# is empty, the __str__ method should return "Playlist is empty."
+class Song:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
 
-# ...
+    def __str__(self):
+        return f"{self.title} by {self.artist} ({self.duration}s)"
 
-# Keep the following tests in your file. Use them as you do the work
-# in this assignment. (And remember to remove this comment before
-# submission.)
+    def play(self):
+        print(f"Playing {self.title} by {self.artist} ({self.duration}s)")
+
+
+class Playlist:
+    def __init__(self):
+        self.songs = []
+
+    def add_song(self, song):
+        self.songs.append(song)
+
+    def play_all(self):
+        for song in self.songs:
+            song.play()
+
+    def __str__(self):
+        if len(self.songs) == 0:
+            return "Playlist is empty."
+
+        song_strings = []
+        for song in self.songs:
+            song_strings.append(str(song))
+
+        return "|".join(song_strings)
 
 
 def test_rectangle():

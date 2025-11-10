@@ -36,23 +36,79 @@ def deal_one_five_card_hand():
 
 
 def deal(number_of_hands, cards_per_hand):
-    # Return a list of sets, each containing the cards for one hand.
-    # You must validate the input parameters according to the test
-    # cases that you will find in cards_test.py. Make sure to remove
-    # this comment and the pass statement below before submitting.
-    pass
+
+    deck = shuffled_deck()
+    total_cards_needed = number_of_hands * cards_per_hand
+    if not isinstance(number_of_hands, int) or not isinstance(cards_per_hand, int):
+        raise TypeError(
+            "Both number_of_hands and cards_per_hand must be integers")
+    if total_cards_needed > 52:
+        raise ValueError("Not enough cards in the deck to deal the hands")
+    if number_of_hands < 1:
+        raise ValueError("number_of_hands must be at least 1")
+    if cards_per_hand < 1:
+        raise ValueError("cards_per_hand must be at least 1")
+
+    hands = []
+    for i in range(number_of_hands):
+        hand = set(deck[i * cards_per_hand:(i + 1) * cards_per_hand])
+        hands.append(hand)
+    return hands
 
 
 def poker_classification(hand):
-    # Returns a string describing the poker hand. First, validate the input
-    # to make sure it is a set of 5 cards, and raise the appropriate error
-    # (TypeError or ValueError) if necessary.
-    #
-    # Then return one of the following strings:
-    # "High Card", "One Pair", "Two Pair", "Three of a Kind",
-    # "Straight", "Flush", "Full House", "Four of a Kind",
-    # "Straight Flush", "Royal Flush"
-    #
-    # Make sure to remove this comment and the pass statement below
-    # before submitting.
-    pass
+    if not isinstance(hand, set):
+        raise TypeError("Hand must be a set")
+    if len(hand) != 5:
+        raise ValueError("Hand must contain exactly 5 cards")
+    if not all(isinstance(card, Card) for card in hand):
+        raise TypeError("All elements in hand must be Card objects")
+
+    cards = list(hand)
+    ranks = sorted([card.rank for card in cards])
+    suits = [card.suit for card in cards]
+
+    rank_counts = {}
+    for rank in ranks:
+        rank_counts[rank] = rank_counts.get(rank, 0) + 1
+
+    count_values = sorted(rank_counts.values(), reverse=True)
+
+    is_flush = len(set(suits)) == 1
+
+    is_straight = False
+    if ranks == [1, 10, 11, 12, 13]:
+        is_straight = True
+    elif ranks[4] - ranks[0] == 4 and len(set(ranks)) == 5:
+        is_straight = True
+    elif ranks == [1, 2, 3, 4, 5]:
+        is_straight = True
+
+    if is_flush and is_straight and ranks == [1, 10, 11, 12, 13]:
+        return "Royal Flush"
+
+    if is_flush and is_straight:
+        return "Straight Flush"
+
+    if count_values == [4, 1]:
+        return "Four of a Kind"
+
+    if count_values == [3, 2]:
+        return "Full House"
+
+    if is_flush:
+        return "Flush"
+
+    if is_straight:
+        return "Straight"
+
+    if count_values == [3, 1, 1]:
+        return "Three of a Kind"
+
+    if count_values == [2, 2, 1]:
+        return "Two Pair"
+
+    if count_values == [2, 1, 1, 1]:
+        return "One Pair"
+
+    return "High Card"
