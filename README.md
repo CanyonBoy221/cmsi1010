@@ -1,3 +1,3 @@
-This is my CMSI 1010 repository.
+# CMSI 1010 Repository
 
-It contains all my labs and assignments for the course.
+This repository contains all my labs and assignments for the CMSI 1010 course.
